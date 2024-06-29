@@ -18,11 +18,11 @@ if uploaded_file is not None:
         image = Image.open(uploaded_file)
         st.image(image, caption='Uploaded Image.', use_column_width=True)
     
-    if st.button('Predict'):
-        with st.spinner('Predicting...'):
+    if st.button('Detect'):
+        with st.spinner('Detecting...'):
             results = model(image)
         
     with col2:
-        st.write('Predicted Image')
+        st.write('Detected Image')
         if 'results' in locals():
-            st.image(results[0].plot(), caption='Predicted Image.', channels='BGR', use_column_width=True)
+            st.image(results[0].plot(), caption='Detected Image.', channels='BGR', use_column_width=True)
